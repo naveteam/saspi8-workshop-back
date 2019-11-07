@@ -18,9 +18,13 @@ const UseController = {
   },
 
   store: async (req, res) => {
-    const user = await User.create(req.body);
+    try {
+      const user = await User.create(req.body);
 
-    return res.status(201).json(user);
+      return res.status(201).json(user);
+    } catch (e) {
+      return res.status(409).json({ message: "Email já cadastrado" });
+    }
   },
 
   update: async (req, res) => {
