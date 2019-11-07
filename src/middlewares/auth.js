@@ -7,7 +7,7 @@ module.exports = async (req, res, next) => {
     return res.status(401).json({ message: "Token não informado" });
   }
 
-  const [, token] = authorization.split(" ");
+  const token = authorization.split(" ")[1];
 
   try {
     const { id, name, email } = jwt.verify(token, process.env.JWT_KEY);
