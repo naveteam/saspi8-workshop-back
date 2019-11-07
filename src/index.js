@@ -13,7 +13,7 @@ const app = express();
 /**
  * Middlewares
  */
-app.use(express.json()); // Permitir que dados
+app.use(express.json()); // Permitir que dados json sejam recebidos no corpo da requisição
 app.use(cors());
 
 /**
